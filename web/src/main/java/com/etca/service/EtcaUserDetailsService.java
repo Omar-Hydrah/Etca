@@ -11,7 +11,6 @@ import com.etca.repo.UserRepository;
 import com.etca.model.User; 
 import com.etca.model.EtcaUserDetails;
 
-
 @Service
 public class EtcaUserDetailsService implements UserDetailsService{
 
