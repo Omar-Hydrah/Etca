@@ -15,7 +15,7 @@ public class EtcaUserDetails extends User implements UserDetails{
 	}
 
 	public EtcaUserDetails(User user){
-		super(user);
+		// super(user);
 		this.user = user;
 	}
 
@@ -24,7 +24,7 @@ public class EtcaUserDetails extends User implements UserDetails{
 	}
 
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthority(){
+	public Collection<? extends GrantedAuthority> getAuthorities(){
 		return AuthorityUtils.createAuthorityList("ROLE_USER");
 	}
 
@@ -44,7 +44,7 @@ public class EtcaUserDetails extends User implements UserDetails{
 	}
 
 	@Override
-	public boolean isAccountNonBlocked(){
+	public boolean isAccountNonLocked(){
 		return true;
 	}
 

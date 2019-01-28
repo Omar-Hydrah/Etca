@@ -17,7 +17,7 @@ public class UserService{
 	private UserRepository repo;
 
 	@Autowired
-	private BCryptPasswordEncoder;
+	private BCryptPasswordEncoder encoder;
 
 	public User login(String username, String password){
 		User user = repo.findByUsernameAndPassword(username, password);

@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
 import javax.sql.DataSource;
-import com.etca.EtcaUserDetailsService;
+import com.etca.service.EtcaUserDetailsService;
 
 
 @Configuration
@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 			.authorizeRequests()
 			.antMatchers("/", "/index", "/home", "/register", 
-				"/404" "/css/*","/js/*")
+				"/404", "/css/*","/js/*")
 				.permitAll()
 			.anyRequest().authenticated()
 			.and()
