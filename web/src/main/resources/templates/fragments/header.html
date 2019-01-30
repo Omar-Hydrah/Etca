@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1, device-width=1" />
+    <meta charset="utf-8"/>
+    <title>Header Page</title>
+</head>
+<body>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">Etca</a>
+		<ul id="nav-mobile">
+			<li>
+				<a th:href="@{/lessons}">Lessons</a>
+			</li>
+			<li>
+				<a th:href="@{/grammar}">Grammar</a>
+			</li>
+			<li>
+				<a th:href="@{/words}">Words</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+</body>
+</html>
