@@ -13,4 +13,9 @@ public class HomeController {
     public String index(){
     	return "home";
     }
+
+    @GetMapping("/login")
+    public String login(){
+    	return "redirect:/user/login";
+    }
 }
