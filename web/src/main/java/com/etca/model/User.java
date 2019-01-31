@@ -80,4 +80,15 @@ public class User{
 		}
 		return false;
 	}
+
+	// Must be an Admin or an Author
+	public boolean canCreateContent(){
+		boolean result = false;
+
+		if(this.role == RoleEnum.Admin || this.role == RoleEnum.Author){
+			result = true;
+		}
+
+		return result;
+	}
 }
