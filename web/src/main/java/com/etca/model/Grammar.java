@@ -5,6 +5,7 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Grammar{
@@ -18,6 +19,9 @@ public class Grammar{
 	private String title;
 
 	private String content;
+
+	@ManyToOne
+	private Language language;
 
 	public Grammar(Long id, Long levelId, String title, String content){
 		this.id      = id;
