@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Grammar{
@@ -21,6 +22,7 @@ public class Grammar{
 	private String content;
 
 	@ManyToOne
+	@JoinColumn(name="language")
 	private Language language;
 
 	public Grammar(Long id, Long levelId, String title, String content){

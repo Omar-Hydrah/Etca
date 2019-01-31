@@ -41,6 +41,7 @@ public class Lesson{
 	private Set<Grammar> grammar = new HashSet<>();
 
 	@ManyToOne
+	@JoinColumn(name="language")
 	private Language language;
 
 	public Lesson(){

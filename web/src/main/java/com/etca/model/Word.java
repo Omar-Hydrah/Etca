@@ -24,7 +24,9 @@ public class Word{
 
 	private String word;
 
-	private String language; 
+	@ManyToOne
+	@JoinColumn(name="language")
+	private Language language; 
 
 	public Word(){
 
@@ -36,7 +38,7 @@ public class Word{
 		this.word    = word;
 	}
 
-	public Word(Long id, Level levelId, String word, String language){
+	public Word(Long id, Level levelId, String word, Language language){
 		this(id, levelId, word);
 		this.language = language;	
 	}
@@ -47,6 +49,6 @@ public class Word{
 	public void setLevelId(Level levelId) { this.levelId = levelId; }
 	public String getWord() { return this.word; }
 	public void setWord(String word) { this.word = word; }
-	public String getLanguage(){return this.language;}
+	public Language getLanguage(){return this.language;}
 	public void setLanguage(String lang){this.language = language;}
 }
