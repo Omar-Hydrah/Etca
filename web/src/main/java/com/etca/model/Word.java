@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 
@@ -17,7 +18,9 @@ public class Word{
 	@GeneratedValue
 	private Long id;
 
-	private Long levelId;
+	@ManyToOne
+	@JoinColumn(name="level_id")
+	private Level levelId;
 
 	private String word;
 
@@ -27,21 +30,21 @@ public class Word{
 
 	}
 
-	public Word(Long id, Long levelId, String word){
+	public Word(Long id, Level levelId, String word){
 		this.id = id;
 		this.levelId = levelId;
 		this.word    = word;
 	}
 
-	public Word(Long id, Long levelId, String word, String language){
+	public Word(Long id, Level levelId, String word, String language){
 		this(id, levelId, word);
 		this.language = language;	
 	}
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
-	public Long getLevelId() { return this.levelId; }
-	public void setLevelId(Long levelId) { this.levelId = levelId; }
+	public Level getLevelId() { return this.levelId; }
+	public void setLevelId(Level levelId) { this.levelId = levelId; }
 	public String getWord() { return this.word; }
 	public void setWord(String word) { this.word = word; }
 	public String getLanguage(){return this.language;}
