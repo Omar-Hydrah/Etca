@@ -13,13 +13,10 @@ public class Grammar{
 	@GeneratedValue
 	private Long id;
 
-	@Column
 	private Long levelId;
 
-	@Column
 	private String title;
 
-	@Column
 	private String content;
 
 	public Grammar(Long id, Long levelId, String title, String content){

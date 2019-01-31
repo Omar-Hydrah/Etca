@@ -11,10 +11,8 @@ public class Word{
 	@GeneratedValue
 	private Long id;
 
-	@Column
 	private Long levelId;
 
-	@Column
 	private String word;
 
 	public Word(Long id, Long levelId, String word){

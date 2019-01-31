@@ -15,7 +15,7 @@ public class EtcaUserDetails extends User implements UserDetails{
 	}
 
 	public EtcaUserDetails(User user){
-		// super(user);
+		super(user);
 		this.user = user;
 	}
 
