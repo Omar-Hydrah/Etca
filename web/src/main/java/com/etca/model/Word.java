@@ -4,6 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+
+import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 public class Word{
@@ -15,10 +21,21 @@ public class Word{
 
 	private String word;
 
+	private String language; 
+
+	public Word(){
+
+	}
+
 	public Word(Long id, Long levelId, String word){
 		this.id = id;
 		this.levelId = levelId;
 		this.word    = word;
+	}
+
+	public Word(Long id, Long levelId, String word, String language){
+		this(id, levelId, word);
+		this.language = language;	
 	}
 
 	public Long getId() { return this.id; }
@@ -27,4 +44,6 @@ public class Word{
 	public void setLevelId(Long levelId) { this.levelId = levelId; }
 	public String getWord() { return this.word; }
 	public void setWord(String word) { this.word = word; }
+	public String getLanguage(){return this.language;}
+	public void setLanguage(String lang){this.language = language;}
 }
