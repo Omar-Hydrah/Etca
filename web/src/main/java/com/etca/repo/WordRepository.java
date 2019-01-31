@@ -9,4 +9,5 @@ import com.etca.model.Word;
 public interface WordRepository extends JpaRepository<Word, Long>{
 
 	
+	Word save(Word word);
 }
