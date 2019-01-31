@@ -73,4 +73,11 @@ public class User{
 	public void setLastName(String lastName) { this.lastName = lastName; }
 	public RoleEnum getRole(){return this.role;}
 	public void setRole(RoleEnum role){this.role = role;}
+
+	public boolean hasRole(RoleEnum role){
+		if(this.role == role){
+			return true;
+		}
+		return false;
+	}
 }
