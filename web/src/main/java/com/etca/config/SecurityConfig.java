@@ -48,15 +48,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http)throws Exception{
 		http
 			.authorizeRequests()
-			.antMatchers("/", "/index", "/home", "/register", 
-				"/404", "/css/*","/js/*")
+			.antMatchers("/", "/index/**", "/home/**", "/user/register", 
+				"/word/**","/lesson/**", "/grammar/**","/error", "/user/login", 
+				"/user/index","/css/*","/js/*")
 				.permitAll()
 			.anyRequest().authenticated()
 			.and()
-			.exceptionHandling().accessDeniedPage("/404")
+			.exceptionHandling().accessDeniedPage("/error")
 			.and()
 			.formLogin()
-				.loginPage("/login")
+				.loginPage("/user/login")
 				.permitAll()
 			.and()
 			.logout()
