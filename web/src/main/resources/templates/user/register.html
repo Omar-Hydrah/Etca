@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1, device-width=1" />
+    <meta charset="utf-8" />
+    <title>Etca - Register</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/materialize.min.css" />
+</head>
+<body>
+<div th:insert="fragments/header :: header">Header</div>	
+
+<div class="container row">
+	<form th:action="@{/user/register}" method="post" th:object="${user}">
+		<div class="input-field col m12 s12">
+			<input type="text" name="username" placeholder="Username" 
+				th:field="*{username}"/>
+			<label for="username">Username</label>
+			<p 
+				th:if="${#fields.hasErrors('username')}" 
+				th:errors="*{username}" class="field-error">Username Error</p>
+				
+		</div>
+		<div class="input-field col m6 s12">
+			<input type="text" name="firstName" placeholder="First Name" 
+				th:field="*{firstName}"/>
+			<label for="firstName">First Name</label>
+
+			<p 
+				th:if="${#fields.hasErrors('firstName')}" 
+				th:errors="*{firstName}" class="field-error">First Name Error</p>
+
+		</div>
+		<div class="input-field col m6 s12">
+			<input type="text" name="lastName" placeholder="Last Name"
+				th:field="*{lastName}"/>
+			<label for="lastName">Last Name</label>
+
+			<p 
+				th:if="${#fields.hasErrors('lastName')}" 
+				th:errors="*{lastName}" class="field-error">Last Name Error</p>
+
+		</div>
+		<div class="input-field col m12 s12">
+			<input type="password" name="password" placeholder="Password"
+				th:field="*{password}"/>
+			<label for="password">Password</label>
+
+			<p 
+				th:if="${#fields.hasErrors('password')}" 
+				th:errors="*{password}" class="field-error">Password Error</p>
+
+		</div>
+		<button type="submit" class="btn cyan darken-2">Register</button>
+	</form>
+</div>
+
+<div th:insert="fragments/footer :: footer">Footer</div>
+</body>
+</html>

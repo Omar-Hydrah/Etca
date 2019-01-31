@@ -8,21 +8,23 @@
 </head>
 <body>
 
-<nav>
-	<div class="nav-wrapper">
-		<a href="#" class="brand-logo">Etca</a>
-		<ul id="nav-mobile">
-			<li>
-				<a th:href="@{/lessons}">Lessons</a>
-			</li>
-			<li>
-				<a th:href="@{/grammar}">Grammar</a>
-			</li>
-			<li>
-				<a th:href="@{/words}">Words</a>
-			</li>
-		</ul>
-	</div>
-</nav>
+<div th:fragment="header">
+	<nav class="cyan darken-2" style="margin-bottom:10px;">
+		<div class="nav-wrapper container">
+			<a href="/" class="brand-logo">Etca</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li>
+					<a th:href="@{/lesson/}">Lessons</a>
+				</li>
+				<li>
+					<a th:href="@{/grammar/}">Grammar</a>
+				</li>
+				<li>
+					<a th:href="@{/word/}">Words</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
 </body>
 </html>
