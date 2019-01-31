@@ -21,22 +21,11 @@ public class User{
 
 	private String lastName;
 
+	@Column
+	private RoleEnum role = RoleEnum.User;
+
 	public User(){
 		
-	}
-
-	public User(User user){
-		this.id = user.id;
-		this.username = user.username;
-		this.firstName = user.firstName;
-		this.lastName  = user.lastName;
-		this.password  = user.password;
-	}
-
-	public User(Long id, String username, String password){
-		this.id = id;
-		this.username = username;
-		this.password = password;
 	}
 
 	public User(String username, String password){
@@ -44,24 +33,33 @@ public class User{
 		this.password = password;
 	}
 
-	public User(String username, String password, String firstName, String lastName){
+	public User(Long id, String username, String password){
+		this(username, password);
+		this.id = id;
+	}
+
+
+	public User(String username, String password, String firstName, 
+		String lastName, RoleEnum role)
+	{
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName  = lastName;
+		this.role      = role;
 	}
 
 	public User(Long id, String username, String password, 
-		String firstName, String lastName)
+		String firstName, String lastName, RoleEnum role)
 	{
+		this(username, password, firstName, lastName, role);
 		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName  = lastName;
 	}
 
-
+	public User(User user){
+		this(user.id, user.username, user.password, user.firstName, 
+			user.lastName, user.role);
+	}
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
@@ -73,4 +71,6 @@ public class User{
 	public void setFirstName(String firstName) { this.firstName = firstName; }
 	public String getLastName() { return this.lastName; }
 	public void setLastName(String lastName) { this.lastName = lastName; }
+	public RoleEnum getRole(){return this.role;}
+	public void setRole(RoleEnum role){this.role = role;}
 }
