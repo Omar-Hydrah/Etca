@@ -11,7 +11,26 @@
 <div th:insert="fragments/header :: header">Header</div>
 	
 <div class="container">
-	<p>Add a new word</p>
+	<form th:action="@{/word/create-word}" method="post" th:object="${word}" class="row">
+		<div class="input-field col s12 m12">
+			<input type="text" name="word" placeholder="Word" th:field="${word.word}" />
+			<label for="word">Word</label>
+		</div>
+		<div class="input-field col s12 m12">
+			<select th:each="level : ${levels}">
+				<option value="" disabled selected>Choose Level</option>
+				<option value="*{level}" th:text="*{level}" th:field="${word.level}">Word Level</option>
+			</select>
+		</div>
+		<div class="input-field col s12">
+			<select th:each="language : ${languages}">
+				<option value="" disabled selected>Choose Language</option>
+				<option value="*{language}" th:text="*{language}" th:field="${word.language}">Language</option>
+			</select>
+		</div>
+
+		<button type="submit" class="btn cyan darken-2">Create word</button>
+	</form>
 </div>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
