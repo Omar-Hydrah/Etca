@@ -16,9 +16,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletException;
 import javax.validation.Valid;
 
-import com.etca.form.LoginForm;
 import com.etca.model.User;
 import com.etca.service.UserService;
 
@@ -50,7 +50,7 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute User newUser,
-        BindingResult result, Model model)
+        BindingResult result, Model model, HttpServletRequest req)
     {
         if(result.hasErrors()){
             logger.info("Form errors");
@@ -62,7 +62,16 @@ public class UserController {
         if(user != null){
             logger.info("Registered user");
             model.addAttribute("user", user);
-            return "user/profile";
+
+            try{
+                req.login(user.getUsername(), user.getPassword());
+            }catch(ServletException e){
+                logger.error("ServletException: " + e.getMessage());
+                // Redirect to the login page
+                return "user/login";
+            }
+
+            return "redirect:/user/profile";
 
         }else{
             logger.info("User error occurred");
