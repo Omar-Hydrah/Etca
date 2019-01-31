@@ -80,7 +80,12 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String profile(){
+    public String profile(@ModelAttribute("flash") String flash, Model model){
+
+        if(flash != null){
+            model.addAttribute("flash", flash);
+        }
+        
         return "user/profile";
     }
 

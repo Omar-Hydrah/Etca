@@ -12,6 +12,9 @@
 
 <div class="container">
 	<p>Profile page </p>
+	<div th:if="${flash}">
+		<p th:text="${flash}" >Flash Message</p>
+	</div>
 </div>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
