@@ -17,10 +17,6 @@ public class Level{
 	@Column(nullable=true)
 	private String title;
 
-	@ManyToOne
-	@JoinColumn(name="language")
-	private Language language;
-
 	public Level(){
 
 	}
@@ -30,16 +26,13 @@ public class Level{
 		this.language = language;
 	}
 
-	public Level(Long id, String title, Language language){
+	public Level(Long id, String title){
 		this.id = id;
 		this.title = title;
-		this.language = language;
 	}
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
 	public String getTitle() { return this.title; }
 	public void setTitle(String title) { this.title = title; }
-	public Language getLanguage(){return this.language;}
-	public void setLanguage(Language language){this.language = language;}
 }
