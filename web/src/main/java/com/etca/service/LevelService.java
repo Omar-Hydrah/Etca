@@ -15,11 +15,8 @@ public class LevelService {
     @Autowired
     private LevelRepository repo;
 
-    public List<Level> getAll(){
+    public List<Level> findAll(){
     	return repo.findAll();
     }
 
-    public List<Level> getLanguageLevels(Language language){
-    	return repo.findByLanguage(language);
-    }
 }

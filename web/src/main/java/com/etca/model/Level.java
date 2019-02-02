@@ -5,13 +5,16 @@ import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
 
 
 @Entity
 public class Level{
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(nullable=true)
@@ -21,9 +24,8 @@ public class Level{
 
 	}
 
-	public Level(String title, Language language){
+	public Level(String title){
 		this.title = title; 
-		this.language = language;
 	}
 
 	public Level(Long id, String title){
