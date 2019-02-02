@@ -15,6 +15,10 @@
 	<p>Words page</p>
 	<a href="/word/create-word">Create a new word</a><br />
 	<a href="/word/words-list">Words list</a>
+
+	<ul th:each="word : ${words}">
+		<li><p th:text="*{word.word}"></p></li>
+	</ul>
 </div>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
