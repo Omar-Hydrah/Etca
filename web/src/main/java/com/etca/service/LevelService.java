@@ -19,4 +19,15 @@ public class LevelService {
     	return repo.findAll();
     }
 
+    public String[] findAllArray(){
+    	List<Level> levelsList = repo.findAll();
+
+    	String[] levels = new String[levelsList.size()];
+
+    	for(int i = 0; i < levelsList.size(); i++){
+    		levels[i] = levelsList.get(i).getTitle();
+    	}
+
+    	return levels;
+    }
 }
