@@ -14,7 +14,18 @@ public class LanguageService {
     private LanguageRepository repo;
 
 
-    public List<Language> getAll(){
+    public List<Language> findAll(){
     	return repo.findAll();
+    }
+
+    public String[] findAllArray(){
+    	List<Language> languagesList = repo.findAll();
+    	String[] languages = new String[languagesList.size()];
+
+    	for(int i = 0; i < languagesList.size(); i++){
+    		languages[i] = languagesList.get(i).getLanguage();
+    	}
+
+    	return languages;
     }
 }
