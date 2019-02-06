@@ -12,6 +12,6 @@ public class GrammarController{
 
 	@GetMapping({"/", "/index"})
 	public String all(){
-		return "grammar";
+		return "grammar/grammar-all";
 	}
 }

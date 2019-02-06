@@ -12,6 +12,6 @@ public class LessonController{
 
 	@GetMapping({"/", "/index"})
 	public String all(){
-		return "lessons";
+		return "lesson/lessons";
 	}
 }
