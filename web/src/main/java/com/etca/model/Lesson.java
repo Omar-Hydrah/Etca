@@ -22,6 +22,7 @@ public class Lesson{
 	@GeneratedValue
 	private Long id;
 
+	@Column(nullable=false)
 	private String title;
 
 	@ManyToMany
@@ -41,7 +42,7 @@ public class Lesson{
 	private Set<Grammar> grammar = new HashSet<>();
 
 	@ManyToOne
-	@JoinColumn(name="language")
+	@JoinColumn(name="language", nullable=false)
 	private Language language;
 
 	public Lesson(){

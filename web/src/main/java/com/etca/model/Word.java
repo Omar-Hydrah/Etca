@@ -22,6 +22,7 @@ public class Word{
 	@JoinColumn(name="level_id")
 	private Level levelId;
 
+	@Column(nullable=false)
 	private String word;
 
 	@ManyToOne

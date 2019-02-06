@@ -15,14 +15,17 @@ public class Grammar{
 	@GeneratedValue
 	private Long id;
 
+	@Column(nullable=false)
 	private Long levelId;
 
+	@Column(nullable=false)
 	private String title;
 
+	@Column(nullable=false)
 	private String content;
 
 	@ManyToOne
-	@JoinColumn(name="language")
+	@JoinColumn(name="language", nullable=false)
 	private Language language;
 
 	public Grammar(Long id, Long levelId, String title, String content){

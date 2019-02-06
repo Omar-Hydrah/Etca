@@ -5,7 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
 
 @Entity
 public class User{
@@ -16,13 +17,17 @@ public class User{
 	@Column(unique=true)
 	private String username;
 
+	@Column(nullable=false)
 	private String password;
 
+	@Column(nullable=false)
 	private String firstName;
 
+	@Column(nullable=false)
 	private String lastName;
 
-	@Column
+	@Column(nullable=false)
+	@Enumerated(EnumType.STRING)
 	private RoleEnum role = RoleEnum.User;
 
 	public User(){
