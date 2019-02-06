@@ -14,7 +14,7 @@ public class User{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique=true)
+	@Column(unique=true, nullable=false)
 	private String username;
 
 	@Column(nullable=false)
@@ -28,7 +28,7 @@ public class User{
 
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
-	private RoleEnum role = RoleEnum.User;
+	private RoleEnum role = RoleEnum.user;
 
 	public User(){
 		
@@ -91,7 +91,7 @@ public class User{
 	public boolean canCreateContent(){
 		boolean result = false;
 
-		if(this.role == RoleEnum.Admin || this.role == RoleEnum.Author){
+		if(this.role == RoleEnum.admin || this.role == RoleEnum.author){
 			result = true;
 		}
 
