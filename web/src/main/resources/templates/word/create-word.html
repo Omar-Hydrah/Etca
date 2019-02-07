@@ -9,7 +9,7 @@
 </head>
 <body>
 <div th:insert="fragments/header :: header">Header</div>
-	
+
 <div class="container">
 	<form th:action="@{/word/create-word}" method="post" th:object="${wordForm}" class="row">
 		<div class="input-field col s12 m12">
@@ -18,17 +18,24 @@
 			<p th:if="${#fields.hasErrors('word')}" th:errors="*{word}">Word can not be blank</p>
 		</div>
 		<div class="input-field col s12">
-			<select th:field="${wordForm.language}">
+			<select th:field="*{language}">
 				<option value="" disabled selected>Choose Language</option>
-				<option th:each="language : ${languages}" th:value="${language}" th:text="${language}">Language</option>
+				<option 
+					th:each="language : ${languages}" 
+					th:value="${language}" 
+					th:text="${language}">Language</option>
+
 			</select>
 
 			<p th:if="${#fields.hasErrors('language')}" th:errors="*{language}">Language does not exist</p>
 		</div>
 		<div class="input-field col s12 m12">
-			<select th:field="${wordForm.level}">
+			<select th:field="*{level}">
 				<option value="" disabled selected>Choose Level</option>
-				<option th:each="level : ${levels}" th:text="${level}" value="${level}">Word Level</option>
+				<option 
+					th:each="level : ${levels}" 
+					th:value="${level}"
+					th:text="${level}">Word Level</option>
 			</select>
 
 			<p th:if="${#fields.hasErrors('level')}" th:errors="*{level}">Incorrect level selected</p>
@@ -39,5 +46,10 @@
 </div>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("select").formSelect();
+	});
+</script>
 </body>
 </html>
