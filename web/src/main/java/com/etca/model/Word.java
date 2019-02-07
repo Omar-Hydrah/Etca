@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinTable;
@@ -15,7 +16,7 @@ import java.util.HashSet;
 @Entity
 public class Word{
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	@ManyToOne
@@ -33,16 +34,24 @@ public class Word{
 
 	}
 
-	public Word(Long id, Level levelId, String word){
-		this.id = id;
-		this.levelId = levelId;
+
+	public Word(Long id, String word, Level levelId){
+		this.id      = id;
 		this.word    = word;
+		this.levelId = levelId;
 	}
 
-	public Word(Long id, Level levelId, String word, Language language){
-		this(id, levelId, word);
-		this.language = language;	
+	public Word(Long id, String word, Language language){
+		this.id       = id;
+		this.word     = word;
+		this.language = language;
 	}
+
+	public Word(Long id, String word, Language language, Level levelId){
+		this(id, word, levelId);
+		this.language = language;
+	}
+
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
