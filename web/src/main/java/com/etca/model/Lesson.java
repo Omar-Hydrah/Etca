@@ -59,4 +59,13 @@ public class Lesson{
 	public void setGrammar(Set<Grammar> grammar) { this.grammar = grammar; }
 	public Language getLanguage(){return this.language;}
 	public void setLanguage(Language language){this.language = language;}
+
+	@Override
+	public String toString(){
+		return "{" + 
+			"id: "       + this.id + ", " +
+			"title: "    + this.title + ", " +
+			"language: " + this.language + ", " +
+			"}";
+	}
 }
