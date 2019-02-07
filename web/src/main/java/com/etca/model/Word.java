@@ -52,4 +52,15 @@ public class Word{
 	public void setWord(String word) { this.word = word; }
 	public Language getLanguage(){return this.language;}
 	public void setLanguage(String lang){this.language = language;}
+
+	@Override
+	public String toString(){
+		return 
+			"{" +
+				"id: " + this.id + "," + 
+				"word: " + this.word + ", " + 
+				"language: " + this.language + ", " + 
+				"levelId: " + this.levelId +
+			"}";
+	}
 }
