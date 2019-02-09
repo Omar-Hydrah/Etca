@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.sql.SqlException;
+import java.sql.SQLException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,18 +36,13 @@ public class WordService{
 
 	public Word save(WordForm wordForm){
 
-		String word     = wordForm.getWord();
+		String text     = wordForm.getWord();
 		String language = wordForm.getLanguage();
 		String level    = wordForm.getLevel();
 
-		Word word = new Word(word, Integer.valueOf(language), Integer.valueOf(level));
+		Word word = new Word(text, Long.valueOf(language), Long.valueOf(level));
 
-		try{
-			return repo.save(word);
-		}catch(SqlException e){
-			logger.info(e.getMessage());-
-			return null;
-		}
+		return repo.save(word);
 	}
 
 	public Word createWord(Word word){
