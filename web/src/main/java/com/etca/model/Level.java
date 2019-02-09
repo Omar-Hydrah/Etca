@@ -24,6 +24,10 @@ public class Level{
 
 	}
 
+	public Level(Long id){
+		this.id = id;
+	}
+
 	public Level(String title){
 		this.title = title; 
 	}

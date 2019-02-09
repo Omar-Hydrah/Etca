@@ -23,6 +23,10 @@ public class Language{
 		
 	}
 
+	public Language(Long id){
+		this.id = id;
+	}
+
 	public Language(LanguageEnum languageEnum){
 		this.language = languageEnum;
 	}
