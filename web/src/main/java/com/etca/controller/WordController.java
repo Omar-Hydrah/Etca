@@ -54,12 +54,12 @@ public class WordController{
 	@GetMapping("/create-word")
 	public String createWord(Model model){
 
-		String[] languages = languageService.findAllArray();
-		String[] levels    = levelService.findAllArray();
+		List<Language> langs  = languageService.findAll();
+		List<Level>    levels = levelService.findAll(); 
 
 		
 		model.addAttribute("wordForm", new WordForm());
-		model.addAttribute("languages", languages);
+		model.addAttribute("languages", langs);
 		model.addAttribute("levels", levels);
 
 		return "word/create-word";
@@ -72,7 +72,7 @@ public class WordController{
 	{	
 		// logger.info("\n\n" + wordForm.toString() + "\n\n");
 
-		if(!principal.canCreateContent()){
+		if(principal == null || !principal.canCreateContent()){
 
 			redirect.addFlashAttribute("flash", "Must be an author to create word");
 			return "redirect:/user/profile";
@@ -84,6 +84,7 @@ public class WordController{
 			return "word/create-word";
 		}
 
+		wordService.save(wordForm);
 
 		return "word/words";
 	}
