@@ -61,12 +61,14 @@ public class Word{
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
-	public Level getLevelId() { return this.levelId; }
-	public void setLevelId(Level levelId) { this.levelId = levelId; }
+	public Level getLevel() { return this.levelId; }
+	public void setLevel(Level level) { this.levelId = levelId; }
+	public void setLevel(Long id){this.levelId = new Level(id);}
 	public String getWord() { return this.word; }
 	public void setWord(String word) { this.word = word; }
 	public Language getLanguage(){return this.languageId;}
 	public void setLanguage(Language lang){this.languageId = lang;}
+	public void setLanguage(Long id){this.languageId = new Language(id);}
 
 	@Override
 	public String toString(){
