@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1, device-width=1" />
+    <meta charset="utf-8" />
+    <title>Words List</title>
+    <link rel="stylesheet" type="text/css" href="/css/materialize.min.css" />
+</head>
+<body>
+<div th:insert="fragments/header :: header">Header</div>
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th>Word</th>
+				<th>Language</th>
+				<th>Level</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr 
+				th:each="word : ${words}"
+				>
+				<td th:text="${word.word}">Word</td>
+				<td th:text="${word.language.language}">Language</td>
+				<td th:text="${word.level.title}">Title</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+	
+<div th:insert="fragments/footer :: footer">Footer</div>
+</body>
+</html>

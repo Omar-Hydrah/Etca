@@ -46,9 +46,18 @@ public class WordController{
 
 
 	@GetMapping({"/", "/index"})
-	public String all(){
-		List<Word> words = wordService.findAll();
+	public String index(Model model){
+
 		return "word/words";
+	}
+
+	@GetMapping("/all")
+	public String all(Model model){
+		List<Word> words = wordService.findAll();
+
+		model.addAttribute("words", words);
+
+		return "word/words-list";
 	}
 
 	@GetMapping("/create-word")
@@ -86,6 +95,6 @@ public class WordController{
 
 		wordService.save(wordForm);
 
-		return "word/words";
+		return "redirect:/word/words";
 	}
 }
