@@ -14,10 +14,4 @@ public interface WordRepository extends JpaRepository<Word, Long>{
 
 	List<Word> findAll();
 	Word save(Word word);
-
-	@Query(value=
-		"insert into word(word, language, level_id) values(:word, (select id from language where language = :language),(select id from level where title= :level))", nativeQuery=true)
-	Word save(
-		@Param("word") String word, 
-		@Param("language") String language, @Param("level") String level);
 }
