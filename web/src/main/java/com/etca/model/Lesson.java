@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 
 import java.util.List;
 import java.util.Set;
@@ -41,6 +42,9 @@ public class Lesson{
 	)
 	private Set<Grammar> grammar = new HashSet<>();
 
+	@OneToMany(mappedBy="lesson", cascade=CascadeType.ALL)
+	private Set<Sentence> sentences;
+
 	@ManyToOne
 	@JoinColumn(name="language", nullable=false)
 	private Language language;
@@ -59,6 +63,8 @@ public class Lesson{
 	public void setGrammar(Set<Grammar> grammar) { this.grammar = grammar; }
 	public Language getLanguage(){return this.language;}
 	public void setLanguage(Language language){this.language = language;}
+	public Set<Sentence> getSentences() { return this.sentences; }
+	public void setSentences(Set<Sentence> sentences) { this.sentences = sentences; }
 
 	@Override
 	public String toString(){

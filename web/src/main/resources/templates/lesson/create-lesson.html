@@ -11,7 +11,45 @@
 <div th:insert="fragments/header :: header">Header</div>
 
 <div class="container">
-	<p>Create a new lesson form</p>
+	<form th:action="@{/lesson/create}" th:object="${lessonForm}">
+		<div class="input-field">
+			<label for="title">Title</label>
+			<input 
+				type="text" 
+				name="title" 
+				placheolder="Lesson Title" 
+				th:field="*{title}" />
+		</div>
+		<div class="input-field">
+			<label >Choose Language</label>
+			<select th:field="*{language}">
+				<option 
+					th:each="language : ${languages}"
+					th:value="${language.id}"
+					th:text="${language.language}">Language</option>
+			</select>
+		</div>
+		<ul>
+			<li th:each="sentence : ${sentences}" th:field="*{sentences}">
+				<div class="input-field" >
+					<input 
+						type="text" 
+						name="text" 
+						th:value="*{text}" 
+						placeholder="Sentence Text" />
+				</div>
+				<div class="input-field">
+					<input 
+						type="text" 
+						name="translation" 
+						th:value="*{translation}" 
+						placeholder="Translation" />
+				</div>
+			</li>
+		</ul>
+
+		<button type="submit" class="btn cyan darken-2">Save Lesson</button>
+	</form>
 </div>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
