@@ -34,4 +34,13 @@ public class Sentence{
 	public void setTranslation(String translation) { this.translation = translation; }
 	public Lesson getLesson() { return this.lesson; }
 	public void setLesson(Lesson lesson) { this.lesson = lesson; }
+
+	@Override
+	public String toString(){
+		return "{" + 
+			"id: " + this.id + ", " + 
+			"text: " + this.text + ", " + 
+			"translation: " + this.translation + ", " +
+			"}";
+	}
 }
