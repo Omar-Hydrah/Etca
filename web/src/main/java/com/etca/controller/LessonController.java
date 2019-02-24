@@ -62,7 +62,7 @@ public class LessonController{
 	public String create(Model model, @Valid @ModelAttribute LessonForm form){
 		log.info("\n\n" + form.toString() + "\n\n");
 
-		return "lesson/create-lesson";
+		return "redirect:/lesson/create";
 	}
 
 	@GetMapping("/{id}")

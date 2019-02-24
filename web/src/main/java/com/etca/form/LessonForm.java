@@ -28,6 +28,19 @@ public class LessonForm{
 		this.sentences = new ArrayList<>();
 	}
 
+	public LessonForm(String title, String language, String level, 
+		List<Sentence> Sentences)
+	{
+		this.title     = title;
+		this.language  = language;
+		this.level     = level;
+		this.sentences = sentences;
+	}
+
+	public LessonForm(List<Sentence> sentences){
+		this.sentences = sentences;
+	}
+
 	public String getTitle() { return this.title; }
 	public void setTitle(String title) { this.title = title; }
 	public String getLanguage() { return this.language; }
@@ -57,6 +70,7 @@ public class LessonForm{
 		return "{" +
 			"title: " + this.title + ", " +
 			"language: " + this.language + ", " +
+			"level: "    + this.level    + ", " +
 			"sentences : [" + sentencesString + "], " +
 			"}";
 	}
