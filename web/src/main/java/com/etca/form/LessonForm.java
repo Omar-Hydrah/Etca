@@ -8,6 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import com.etca.model.Language;
 import com.etca.model.Sentence;
 import com.etca.model.Lesson;
+import com.etca.model.Level;
 
 public class LessonForm{
 
@@ -16,6 +17,9 @@ public class LessonForm{
 
 	@NotEmpty
 	private String language;
+
+	@NotEmpty
+	private String level;
 
 	@NotEmpty
 	private List<Sentence> sentences;
@@ -30,6 +34,8 @@ public class LessonForm{
 	public void setLanguage(String language) { this.language = language; }
 	public List<Sentence> getSentences() { return this.sentences; }
 	public void setSentences(List<Sentence> sentences) { this.sentences = sentences; }
+	public String getLevel() { return this.level; }
+	public void setLevel(String level) { this.level = level; }
 
 	public void addSentence(Sentence sentence){
 		if(this.sentences == null){
@@ -54,4 +60,5 @@ public class LessonForm{
 			"sentences : [" + sentencesString + "], " +
 			"}";
 	}
+	
 }
