@@ -25,6 +25,10 @@ public class Sentence{
 	@JoinColumn
 	private Lesson lesson;
 
+	public Sentence(){
+		
+	}
+
 	public Sentence(Long id, String text, String translation){
 		this.id = id;
 		this.text= text;
