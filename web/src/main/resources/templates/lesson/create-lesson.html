@@ -11,8 +11,8 @@
 <div th:insert="fragments/header :: header">Header</div>
 
 <div class="container">
-	<form th:action="@{/lesson/create}" th:object="${lessonForm}">
-		<div class="input-field">
+	<form th:action="@{/lesson/create}" th:object="${form}" method="post" class="row">
+		<div class="input-field col s12">
 			<label for="title">Title</label>
 			<input 
 				type="text" 
@@ -20,8 +20,8 @@
 				placheolder="Lesson Title" 
 				th:field="*{title}" />
 		</div>
-		<div class="input-field">
-			<label >Choose Language</label>
+		<div class="input-field col s12">
+			<p >Choose Language</p>
 			<select th:field="*{language}">
 				<option 
 					th:each="language : ${languages}"
@@ -29,29 +29,49 @@
 					th:text="${language.language}">Language</option>
 			</select>
 		</div>
+		<div class="input-field col s12">
+			<p>Choose Level</p>
+			<select th:field="*{level}">
+				<option
+					th:each="level : ${levels}"
+					th:value="${level.id}"
+					th:text="${level.title}"
+					>
+					Level
+				</option>
+			</select>
+		</div>
 		<ul>
-			<li th:each="sentence : ${sentences}" th:field="*{sentences}">
-				<div class="input-field" >
-					<input 
-						type="text" 
-						name="text" 
-						th:value="*{text}" 
-						placeholder="Sentence Text" />
+			<li th:each="s, stat : ${form.sentences}" >
+				<div class="input-field col s6">
+					<input type="text" 
+						th:name="|sentences[${stat.index}].text|"
+						th:value="${s.text}"
+						th:field="${form.sentences[__${stat.index}__].text}"
+						placeholder="Sentence Text"
+						/>
 				</div>
-				<div class="input-field">
+				<div class="input-field col s6">
 					<input 
 						type="text" 
-						name="translation" 
-						th:value="*{translation}" 
-						placeholder="Translation" />
+						th:name="|sentences[${stat.index}].translation|"
+						th:value="${s.translation}"
+						th:field="${form.sentences[__${stat.index}__].translation}"
+						placeholder="Translation"
+						/>
 				</div>
 			</li>
 		</ul>
-
 		<button type="submit" class="btn cyan darken-2">Save Lesson</button>
 	</form>
 </div>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("select").formSelect();
+	});
+</script>
 </body>
 </html>
