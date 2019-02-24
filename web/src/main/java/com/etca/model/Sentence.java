@@ -25,6 +25,17 @@ public class Sentence{
 	@JoinColumn
 	private Lesson lesson;
 
+	public Sentence(Long id, String text, String translation){
+		this.id = id;
+		this.text= text;
+		this.translation = translation;
+	}
+
+	public Sentence(String text, String translation){
+		this.text = text;
+		this.translation = translation;
+	}
+
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
