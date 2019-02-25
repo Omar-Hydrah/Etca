@@ -13,8 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
 import java.util.List;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.ArrayList;
 
 @Entity
 public class Lesson{
@@ -32,7 +31,7 @@ public class Lesson{
 		joinColumns= {@JoinColumn(name="lesson_id")},
 		inverseJoinColumns = {@JoinColumn(name="tag_id")}
 	)
-	private Set<Word> words = new HashSet<>();
+	private List<Word> words = new ArrayList<>();
 
 	@ManyToMany
 	@JoinTable(
@@ -40,10 +39,10 @@ public class Lesson{
 		joinColumns={@JoinColumn(name="lesson_id")},
 		inverseJoinColumns = {@JoinColumn(name="grammar_id")}
 	)
-	private Set<Grammar> grammar = new HashSet<>();
+	private List<Grammar> grammar = new ArrayList<>();
 
 	@OneToMany(mappedBy="lesson", cascade=CascadeType.ALL)
-	private Set<Sentence> sentences;
+	private List<Sentence> sentences;
 
 	@ManyToOne
 	@JoinColumn(name="language", nullable=false)
@@ -52,19 +51,35 @@ public class Lesson{
 	public Lesson(){
 
 	}
+	
+	public Lesson(String title, List<Sentence> sentences){
+		this.title = title;
+		this.sentences = sentences;
+
+	}
+
+	public Lesson(String title, List<Word> words, List<Grammar> grammar, 
+		List<Sentence> sentences)
+	{
+		this.title = title;
+		this.words = words;
+		this.grammar = grammar;
+		this.sentences = sentences;
+	}
+
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
 	public String getTitle() { return this.title; }
 	public void setTitle(String title) { this.title = title; }
-	public Set<Word> getWords() { return this.words; }
-	public void setWords(Set<Word> words) { this.words = words; }
-	public Set<Grammar> getGrammar() { return this.grammar; }
-	public void setGrammar(Set<Grammar> grammar) { this.grammar = grammar; }
+	public List<Word> getWords() { return this.words; }
+	public void setWords(List<Word> words) { this.words = words; }
+	public List<Grammar> getGrammar() { return this.grammar; }
+	public void setGrammar(List<Grammar> grammar) { this.grammar = grammar; }
 	public Language getLanguage(){return this.language;}
 	public void setLanguage(Language language){this.language = language;}
-	public Set<Sentence> getSentences() { return this.sentences; }
-	public void setSentences(Set<Sentence> sentences) { this.sentences = sentences; }
+	public List<Sentence> getSentences() { return this.sentences; }
+	public void setSentences(List<Sentence> sentences) { this.sentences = sentences; }
 
 	@Override
 	public String toString(){
