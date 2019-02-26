@@ -16,8 +16,7 @@ public class Language{
 	private Long id;
 
 	@Column(unique=true, nullable=false)
-	@Enumerated(EnumType.STRING)
-	private LanguageEnum language;
+	private String language;
 
 	public Language(){
 		
@@ -27,20 +26,20 @@ public class Language{
 		this.id = id;
 	}
 
-	public Language(LanguageEnum languageEnum){
-		this.language = languageEnum;
+	public Language(String language){
+		this.language = language;
 	}
 
-	public Language(Long id, LanguageEnum languageEnum){
+	public Language(Long id, String language){
 		this.id = id;
-		this.language = languageEnum;
+		this.language = language;
 	}
 
 	public Long getId() { return this.id; }
 	public void setId(Long id) { this.id = id; }
-	public LanguageEnum getLanguageEnum() { return this.language; }
-	public void setLanguageEnum(LanguageEnum langEnum) { 
-		this.language = langEnum;}
+	public String getLanguage(){return this.language;}
+	public void setLanguage(String language) { 
+		this.language = language; 
+	}
 
-	public String getLanguage(){return this.language.getLanguage();}
 }
