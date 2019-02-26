@@ -74,7 +74,7 @@ public class LessonController{
 
 	@PostMapping("/create")
 	public String create(Model model, @Valid @ModelAttribute LessonForm form){
-		log.info("\n\n" + form.toString() + "\n\n");
+		// log.info("\n\n" + form.toString() + "\n\n");
 
 		Level level = new Level(Long.valueOf(form.getLevel()));
 		Language language = new Language(Long.valueOf(form.getLanguage()));
