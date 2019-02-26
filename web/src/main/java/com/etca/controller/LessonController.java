@@ -17,9 +17,11 @@ import org.slf4j.LoggerFactory;
 import com.etca.form.LessonForm;
 import com.etca.service.LanguageService;
 import com.etca.service.LevelService;
+import com.etca.service.LessonService;
 import com.etca.model.Sentence;
 import com.etca.model.Language;
 import com.etca.model.Level;
+import com.etca.model.Lesson;
 
 @RequestMapping("/lesson")
 @Controller
@@ -34,10 +36,22 @@ public class LessonController{
 	@Autowired
 	private LevelService levelService;
 
+	@Autowired
+	private LessonService lessonService;
 
 	@GetMapping({"/", "/index"})
-	public String all(){
+	public String index(){
 		return "lesson/lessons";
+	}
+
+	@GetMapping("/all")
+	public String all(Model model){
+
+		List<Lesson> lessons = lessonService.findAll();
+
+		model.addAttribute("lessons", lessons);
+
+		return "lesson/lessons-list";
 	}
 
 	@GetMapping("/create")
@@ -48,7 +62,7 @@ public class LessonController{
 		List<Level> levels       = levelService.findAll();
 
 		for(int i = 0; i < 5; i++){
-			form.addSentence(new Sentence("Text", "Translation"));
+			form.addSentence(new Sentence());
 		}
 
 		model.addAttribute("form", form);
@@ -62,7 +76,19 @@ public class LessonController{
 	public String create(Model model, @Valid @ModelAttribute LessonForm form){
 		log.info("\n\n" + form.toString() + "\n\n");
 
-		return "redirect:/lesson/create";
+		Level level = new Level(Long.valueOf(form.getLevel()));
+		Language language = new Language(Long.valueOf(form.getLanguage()));
+		List<Sentence> sentences = form.getSentences();
+
+		Lesson lesson = new Lesson(form.getTitle(), language, level, sentences);
+
+		for (int i = 0; i < sentences.size(); i++) {
+			sentences.get(i).setLesson(lesson);
+		}
+
+		lessonService.save(lesson);
+
+		return "redirect:/lesson/all";
 	}
 
 	@GetMapping("/{id}")
