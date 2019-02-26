@@ -11,18 +11,23 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Table;
 
 import java.util.List;
 import java.util.ArrayList;
 
 @Entity
+@Table(uniqueConstraints=
+	@UniqueConstraint(columnNames={"title", "language_id"})
+)
 public class Lesson{
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
-	@Column(nullable=false, unique=true)
+	@Column(nullable=false)
 	private String title;
 
 	@ManyToMany
