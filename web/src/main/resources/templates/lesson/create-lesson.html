@@ -18,7 +18,9 @@
 				type="text" 
 				name="title" 
 				placheolder="Lesson Title" 
-				th:field="*{title}" />
+				th:field="*{title}" 
+				required
+				/>
 		</div>
 		<div class="input-field col s12">
 			<p >Choose Language</p>
@@ -49,6 +51,7 @@
 						th:value="${s.text}"
 						th:field="*{sentences[__${stat.index}__].text}"
 						placeholder="Sentence Text"
+						required
 						/>
 				</div>
 				<div class="input-field col s6">
@@ -58,6 +61,7 @@
 						th:value="${s.translation}"
 						th:field="*{sentences[__${stat.index}__].translation}"
 						placeholder="Translation"
+						required
 						/>
 				</div>
 			</li>
