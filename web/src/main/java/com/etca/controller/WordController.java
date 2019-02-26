@@ -51,7 +51,7 @@ public class WordController{
 		return "word/words";
 	}
 
-	@GetMapping("/all")
+	@GetMapping({"/all", "/words"})
 	public String all(Model model){
 		List<Word> words = wordService.findAll();
 

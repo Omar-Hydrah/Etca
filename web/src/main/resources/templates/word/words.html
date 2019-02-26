@@ -13,8 +13,8 @@
 
 <div class="container">
 	<p>Words page</p>
-	<a href="/word/create-word">Create a new word</a><br />
-	<a href="/word/words-list">Words list</a>
+	<a th:href="@{/word/create-word}" href="/word/create-word">Create a new word</a><br />
+	<a th:href="@{/word/all}" href="/word/all">Words list</a>
 
 	<ul th:each="word : ${words}">
 		<li><p th:text="*{word.word}"></p></li>
