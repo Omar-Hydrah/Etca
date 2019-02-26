@@ -29,7 +29,7 @@ public class LessonForm{
 	}
 
 	public LessonForm(String title, String language, String level, 
-		List<Sentence> Sentences)
+		List<Sentence> sentences)
 	{
 		this.title     = title;
 		this.language  = language;
