@@ -22,7 +22,7 @@ public class Lesson{
 	@GeneratedValue
 	private Long id;
 
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String title;
 
 	@ManyToMany
@@ -45,8 +45,13 @@ public class Lesson{
 	private List<Sentence> sentences;
 
 	@ManyToOne
-	@JoinColumn(name="language", nullable=false)
+	@JoinColumn(name="language_id", nullable=false)
 	private Language language;
+
+	@ManyToOne
+	@JoinColumn(name="level_id")
+	private Level level;
+
 
 	public Lesson(){
 
@@ -56,6 +61,15 @@ public class Lesson{
 		this.title = title;
 		this.sentences = sentences;
 
+	}
+
+	public Lesson(String title, Language language, Level level, 
+		List<Sentence> sentences)
+	{
+		this.title = title;
+		this.language = language;
+		this.level = level;
+		this.sentences = sentences;
 	}
 
 	public Lesson(String title, List<Word> words, List<Grammar> grammar, 
@@ -80,6 +94,8 @@ public class Lesson{
 	public void setLanguage(Language language){this.language = language;}
 	public List<Sentence> getSentences() { return this.sentences; }
 	public void setSentences(List<Sentence> sentences) { this.sentences = sentences; }
+	public Level getLevel() { return this.level; }
+	public void setLevel(Level level) { this.level = level; }
 
 	@Override
 	public String toString(){
