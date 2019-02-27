@@ -82,7 +82,7 @@ public class LessonController{
 		List<Sentence> sentences = form.getSentences();
 
 		Lesson lesson = new Lesson(form.getTitle(), language, level, 
-			sentences);
+			form.getContent(), sentences);
 
 		for (int i = 0; i < sentences.size(); i++) {
 			sentences.get(i).setLesson(lesson);

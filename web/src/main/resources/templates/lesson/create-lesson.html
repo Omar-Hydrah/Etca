@@ -43,6 +43,14 @@
 				</option>
 			</select>
 		</div>
+		<div class="input-field col s12">
+			<textarea 
+				id="content" 
+				class="materialize-textarea" 
+				th:field="*{content}"></textarea>
+				
+			<label for="content">Lesson Content</label>
+		</div>
 		<ul>
 			<li th:each="s, stat : *{sentences}" >
 				<div class="input-field col s6">

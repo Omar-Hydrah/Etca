@@ -21,6 +21,8 @@ public class LessonForm{
 	@NotEmpty
 	private String level;
 
+	private String content;
+
 	@NotEmpty
 	private List<Sentence> sentences;
 
@@ -49,6 +51,9 @@ public class LessonForm{
 	public void setSentences(List<Sentence> sentences) { this.sentences = sentences; }
 	public String getLevel() { return this.level; }
 	public void setLevel(String level) { this.level = level; }
+	public String getContent() { return this.content; }
+	public void setContent(String content) { this.content = content; }
+
 
 	public void addSentence(Sentence sentence){
 		if(this.sentences == null){
@@ -71,6 +76,7 @@ public class LessonForm{
 			"title: " + this.title + ", " +
 			"language: " + this.language + ", " +
 			"level: "    + this.level    + ", " +
+			"content: "  + this.content  + ", " +
 			"sentences : [" + sentencesString + "], " +
 			"}";
 	}

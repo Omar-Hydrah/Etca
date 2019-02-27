@@ -16,8 +16,11 @@
 <div class="container" th:if="${lesson}">
 	<h4 th:text="${lesson.title}">Lesson Title</h4>
 
+    <p th:text="${lesson.content}? ${lesson.content} : 'No content for this lesson'"></p>
+
 	<button class="btn cyan darken-2" >Start lesson</button>
 </div>
+
 <div class="container" th:unless="${lesson}">
 	<h4>Lesson not found!</h4>
 	<a th:href="@{/lesson/all}">All lessons</a>
