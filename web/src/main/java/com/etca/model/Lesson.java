@@ -65,6 +65,12 @@ public class Lesson{
 
 	}
 	
+	public Lesson(String title, String content, List<Sentence> sentences){
+		this.title = title;
+		this.content = content;
+		this.sentences = sentences;
+	}
+
 	public Lesson(String title, List<Sentence> sentences){
 		this.title = title;
 		this.sentences = sentences;
@@ -72,11 +78,12 @@ public class Lesson{
 	}
 
 	public Lesson(String title, Language language, Level level, 
-		List<Sentence> sentences)
+		String content, List<Sentence> sentences)
 	{
 		this.title = title;
 		this.language = language;
 		this.level = level;
+		this.content = content;
 		this.sentences = sentences;
 	}
 
@@ -113,6 +120,9 @@ public class Lesson{
 			"id: "       + this.id + ", " +
 			"title: "    + this.title + ", " +
 			"language: " + this.language + ", " +
+			"level: "    + this.level    + ", " +
+			"content: "  + this.content + ", " +
+
 			"}";
 	}
 	
