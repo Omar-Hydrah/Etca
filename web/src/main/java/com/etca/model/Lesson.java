@@ -30,6 +30,9 @@ public class Lesson{
 	@Column(nullable=false)
 	private String title;
 
+	@Column
+	private String content;
+
 	@ManyToMany
 	@JoinTable(
 		name="lesson_word",
@@ -101,6 +104,8 @@ public class Lesson{
 	public void setSentences(List<Sentence> sentences) { this.sentences = sentences; }
 	public Level getLevel() { return this.level; }
 	public void setLevel(Level level) { this.level = level; }
+	public String getContent() { return this.content; }
+	public void setContent(String content) { this.content = content; }
 
 	@Override
 	public String toString(){
@@ -110,4 +115,5 @@ public class Lesson{
 			"language: " + this.language + ", " +
 			"}";
 	}
+	
 }
