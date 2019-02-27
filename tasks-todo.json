@@ -1,0 +1,9 @@
+{
+	"web":{
+		"Lesson": [
+			"Create grammar form for every lesson",
+			"Create angular ui to display single lessons"
+		]
+	}
+
+}
