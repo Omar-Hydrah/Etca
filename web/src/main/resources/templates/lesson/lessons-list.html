@@ -17,7 +17,11 @@
 	<p th:text="'There are ' + ${#arrays.length(lessons)} + ' lessons'">Count</p>
 
 	<ul th:each="lesson : ${lessons}">
-		<li th:text="*{lesson.title}" >Lesson Title</li>
+		<li >
+			<a 
+				th:href="@{'/lesson/'+${#strings.toString(lesson.id)}}" 
+				th:text="*{lesson.title}">Lesson Title</a>
+		</li>
 	</ul>
 
 </div>
