@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
@@ -80,7 +81,8 @@ public class LessonController{
 		Language language = new Language(Long.valueOf(form.getLanguage()));
 		List<Sentence> sentences = form.getSentences();
 
-		Lesson lesson = new Lesson(form.getTitle(), language, level, sentences);
+		Lesson lesson = new Lesson(form.getTitle(), language, level, 
+			sentences);
 
 		for (int i = 0; i < sentences.size(); i++) {
 			sentences.get(i).setLesson(lesson);
@@ -92,7 +94,17 @@ public class LessonController{
 	}
 
 	@GetMapping("/{id}")
-	public String lesson(){
-		return "";
+	public String lesson(Model model, @PathVariable Long id){
+
+
+		try{
+			Lesson lesson = lessonService.findById(id).get();
+			model.addAttribute(lesson);
+
+		}catch(Exception e){
+			model.addAttribute("lesson", null);
+		}
+
+		return "lesson/lesson";
 	}
 }
