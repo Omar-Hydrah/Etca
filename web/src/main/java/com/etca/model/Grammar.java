@@ -28,6 +28,10 @@ public class Grammar{
 	@JoinColumn(name="language", nullable=false)
 	private Language language;
 
+	public Grammar(){
+		
+	}
+
 	public Grammar(Long id, Long levelId, String title, String content){
 		this.id      = id;
 		this.levelId = levelId;

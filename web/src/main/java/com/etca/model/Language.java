@@ -42,4 +42,12 @@ public class Language{
 		this.language = language; 
 	}
 
+	@Override
+	public String toString(){
+		return "{" +
+			"id: " + this.id + ", " +
+			"language: " + this.language + ", " +
+			"}";
+	}
+
 }

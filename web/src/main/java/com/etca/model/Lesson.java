@@ -116,13 +116,20 @@ public class Lesson{
 
 	@Override
 	public String toString(){
+
+		StringBuilder sentencesString = new StringBuilder();
+
+		for (int i = 0; i < this.sentences.size(); i++) {
+			sentencesString.append(this.sentences.get(i).toString());
+		}
+
 		return "{" + 
 			"id: "       + this.id + ", " +
 			"title: "    + this.title + ", " +
 			"language: " + this.language + ", " +
 			"level: "    + this.level    + ", " +
 			"content: "  + this.content + ", " +
-
+			"sentences: " + sentencesString + 
 			"}";
 	}
 	
