@@ -8,8 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
+@JsonIgnoreProperties({"lesson"})
 public class Sentence{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
