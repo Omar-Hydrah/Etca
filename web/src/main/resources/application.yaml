@@ -9,11 +9,15 @@ spring:
     url: jdbc:mysql://localhost:3306/etca
     username: root
     password: 1234
+  jackson:
+    serialization:
+      indent_output: true
 
-logging:
-  level:
-    org:
+
+# logging:
+  # level:
+    # org:
       # springframework:
         # web: ERROR
         # security: ERROR
-      hibernate: ERROR
+      # hibernate: ERROR
