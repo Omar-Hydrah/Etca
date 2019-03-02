@@ -1,14 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>LessonUi</title>
-  <base href="/">
+    <meta charset="utf-8">
+    <title>LessonUi</title>
+    <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/materialize.min.css" />
 </head>
 <body>
-  <app-root></app-root>
+	<nav class="cyan darken-2" style="margin-bottom:10px;">
+		<div class="nav-wrapper container">
+			<a href="/" class="brand-logo">Etca</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li>
+					<a href="/lesson">Lessons</a>
+				</li>
+				<li>
+					<a href="/grammar">Grammar</a>
+				</li>
+				<li>
+					<a href="/word">Words</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    <app-root></app-root>
+
+<script type="text/javascript" src="/assets/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/materialize.min.js"></script>
 </body>
 </html>
