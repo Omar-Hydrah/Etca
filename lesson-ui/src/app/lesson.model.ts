@@ -7,6 +7,6 @@ export interface Lesson{
 	sentences: Sentence[];
 	words: string[];
 	grammar : string[];
-	language: object;
-	level   : object;
+	language: any;
+	level   : any;
 }
