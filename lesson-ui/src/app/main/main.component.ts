@@ -17,7 +17,6 @@ export class MainComponent implements OnInit {
     ngOnInit() {}
 
     launchLesson(){
-        console.log("Start lesson from main component");
     	this.setStartLesson.emit(true);
     }
 

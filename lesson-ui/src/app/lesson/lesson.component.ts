@@ -15,7 +15,6 @@ export class LessonComponent implements OnInit {
     ngOnInit() {}
 
     back(){
-        console.log("back to main component from lesson");
     	this.setStartLesson.emit(false);
     }
 }
