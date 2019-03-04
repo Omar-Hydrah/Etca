@@ -1,14 +1,14 @@
 <main-component 
 	*ngIf="!startLesson" 
-	(setStartLesson)="setStartLesson($value)" 
+	(setStartLesson)="setStartLesson(true)" 
 	[lesson]="lesson" 
 	[contentLines]="contentLines" >
 </main-component>
 
 <lesson-component 
 	*ngIf="startLesson" 
-	(setStartLesson)="setStartLesson($value)"
+	(setStartLesson)="setStartLesson(false)"
 	[sentences]="sentences">
 </lesson-component>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

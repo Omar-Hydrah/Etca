@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
     }
 
     setStartLesson(value: boolean){
+        console.log("Value changed to " + value);
     	this.startLesson = value;
     }
 
