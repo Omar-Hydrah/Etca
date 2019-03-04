@@ -19,18 +19,21 @@ export class AppComponent implements OnInit {
     startLesson: boolean;
 
     constructor(private lessonService : LessonService, 
-        private route : ActivatedRoute){}
+        private route : ActivatedRoute, private router : Router)
+    {
+        router.events.subscribe((event : any)=>{
+            if(event.url && event.urlAfterRedirects){
+                const lessonMatch = event.url.match(/\d{1,2}/g);
+                if(lessonMatch == null){
+                    router.navigate(["/not-found"])
+                }
+                this.lessonId = lessonMatch[0];
+            }
+        });
+    }
 
     ngOnInit(){
-        console.log(this.route.data);
-        this.route.data.forEach((data)=>{
-            this.lessonId = data["id"];
-        });
-    	this.url    = this.route.snapshot.params["id"];
-    	this.title  = this.url;
 
-        console.log(this.route.snapshot);
-        
     	this.lessonService.getLesson(13)
         .subscribe((lesson : Lesson) => {
     		this.lesson = lesson;
@@ -42,7 +45,6 @@ export class AppComponent implements OnInit {
     }
 
     setStartLesson(value: boolean){
-        console.log("Value changed to " + value);
     	this.startLesson = value;
     }
 
