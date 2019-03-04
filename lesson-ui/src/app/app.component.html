@@ -1,5 +1,14 @@
-<div class="container">
-	Lesson Content
-</div>
+<main-component 
+	*ngIf="!startLesson" 
+	(setStartLesson)="setStartLesson($value)" 
+	[lesson]="lesson" 
+	[contentLines]="contentLines" >
+</main-component>
+
+<lesson-component 
+	*ngIf="startLesson" 
+	(setStartLesson)="setStartLesson($value)"
+	[sentences]="sentences">
+</lesson-component>
 
 <router-outlet></router-outlet>
