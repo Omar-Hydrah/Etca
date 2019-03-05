@@ -1,14 +1,3 @@
-<main-component 
-	*ngIf="!startLesson" 
-	(setStartLesson)="setStartLesson(true)" 
-	[lesson]="lesson" 
-	[contentLines]="contentLines" >
-</main-component>
-
-<lesson-component 
-	*ngIf="startLesson" 
-	(setStartLesson)="setStartLesson(false)"
-	[sentences]="sentences">
-</lesson-component>
-
-<!-- <router-outlet></router-outlet> -->
+<div class="container">
+	<router-outlet></router-outlet>
+</div>
