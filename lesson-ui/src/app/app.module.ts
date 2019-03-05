@@ -10,6 +10,7 @@ import { LessonComponent } from './lesson/lesson.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ViewComponent } from './view/view.component';
 import { BlankComponent } from './blank/blank.component';
+import { SentenceComponent } from './sentence/sentence.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { BlankComponent } from './blank/blank.component';
         LessonComponent,
         NotFoundComponent,
         ViewComponent,
-        BlankComponent
+        BlankComponent,
+        SentenceComponent
     ],
     imports: [
         BrowserModule,
