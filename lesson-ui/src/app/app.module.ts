@@ -7,12 +7,18 @@ import { AppComponent } from './app.component';
 import { LessonService } from "./service/lesson.service";
 import { MainComponent } from './main/main.component';
 import { LessonComponent } from './lesson/lesson.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ViewComponent } from './view/view.component';
+import { BlankComponent } from './blank/blank.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MainComponent,
-        LessonComponent
+        LessonComponent,
+        NotFoundComponent,
+        ViewComponent,
+        BlankComponent
     ],
     imports: [
         BrowserModule,
