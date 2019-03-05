@@ -1,1 +1,6 @@
-<p>Sentence Component</p>
+<div class="align-center">
+	<p>{{ sentence.text }}</p>
+	<input type="text" name="answer" [(ngModle)]="answer" />
+
+	<button class="btn cyan darken-2" (click)="checkAnswer()" >Check answer</button>
+</div>
