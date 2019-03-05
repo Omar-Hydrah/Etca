@@ -1,8 +1,6 @@
-<div class="container">
-	<h4>{{lesson?.title}}</h4>	
-	<ul *ngFor="let content of contentLines">
-		<li>{{content}}</li>
-	</ul>
+<h4>{{lesson?.title}}</h4>	
+<ul *ngFor="let content of contentLines">
+	<li>{{content}}</li>
+</ul>
 
-	<button class="btn cyan darken-2" (click)="launchLesson()" >Start Lesson</button>
-</div>
+<button class="btn cyan darken-2" (click)="launchLesson()" >Start Lesson</button>
