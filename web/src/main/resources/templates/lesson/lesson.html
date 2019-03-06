@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <base href="/lesson">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="initial-scale=1, device-width=1" />
     <meta charset="utf-8" />
@@ -13,18 +14,13 @@
 <body>
 <div th:insert="fragments/header :: header">Header</div>
 
-<div class="container" th:if="${lesson}">
-	<h4 th:text="${lesson.title}">Lesson Title</h4>
-
-    <p th:text="${lesson.content}? ${lesson.content} : 'No content for this lesson'"></p>
-
-	<button class="btn cyan darken-2" >Start lesson</button>
-</div>
+<app-root></app-root>
 
 <div class="container" th:unless="${lesson}">
-	<h4>Lesson not found!</h4>
 	<a th:href="@{/lesson/all}">All lessons</a>
 </div>
+
+<script type="text/javascript" src="/js/lesson-ui-runtime.js"></script><script type="text/javascript" src="/js/lesson-ui-es2015-polyfills.js" nomodule></script><script type="text/javascript" src="/js/lesson-ui-polyfills.js"></script><script type="text/javascript" src="/js/lesson-ui-main.js"></script>
 
 <div th:insert="fragments/footer :: footer">Footer</div>
 </body>
