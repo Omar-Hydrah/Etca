@@ -8,5 +8,8 @@
 <lesson-component 
 	*ngIf="startLesson" 
 	(setStartLesson)="setStartLesson(false)"
+	(setSuccess)="setSuccess(true)"
 	[sentences]="sentences">
 </lesson-component>
+
+<p *ngIf="success" style="color:green;">{{successMessage}}</p>

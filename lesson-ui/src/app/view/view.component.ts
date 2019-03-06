@@ -19,6 +19,9 @@ export class ViewComponent implements OnInit {
     url    : string;
     startLesson: boolean;
 
+    successMessage = "You successfully passed this lesson";
+    success : boolean = false;
+
     constructor(private lessonService : LessonService, 
         private route : ActivatedRoute, private router : Router)
     {}
@@ -46,5 +49,9 @@ export class ViewComponent implements OnInit {
 
     setStartLesson(value: boolean){
     	this.startLesson = value;
+    }
+
+    setSuccess(value : boolean){
+        this.success = value;
     }
 }

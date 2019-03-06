@@ -10,6 +10,7 @@ import { Sentence } from "../sentence.model";
 export class LessonComponent implements OnInit {
 	@Input() sentences : Sentence[];
 	@Output() setStartLesson = new EventEmitter();
+    @Output() setSuccess     = new EventEmitter<boolean>();
 
     sentence     : Sentence;
     sentenceGenerator : any;
@@ -23,6 +24,7 @@ export class LessonComponent implements OnInit {
     next(){
         this.sentence = this.sentenceGenerator.next().value;
         if(this.sentence == null){
+            this.setSuccess.emit(true);
             this.back();
         }
     }
