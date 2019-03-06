@@ -1,6 +1,13 @@
 <div class="align-center">
 	<p>{{ sentence.text }}</p>
-	<input type="text" name="answer" [(ngModle)]="answer" />
+	<input [(ngModel)]="answer" type="text" name="answer" />
+
+	<div *ngIf="!success">
+		<p style="color:red;">Wrong answer</p>
+		<p style="color:grey;">
+			Correct translation is {{sentence.translation}} 
+		</p>
+	</div>
 
 	<button class="btn cyan darken-2" (click)="checkAnswer()" >Check answer</button>
 </div>
